@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
     };
 
     console.log(cliente)
-    this.http.post(`${this.apiURL}/register_cliente`, cliente)
+    this.http.post(`${this.apiURL}/register_cliente`, cliente, httpOptions)
       .subscribe(result => {
         window.localStorage.setItem('currentUser', JSON.stringify(result));
         this.r.navigate(['/home']);
