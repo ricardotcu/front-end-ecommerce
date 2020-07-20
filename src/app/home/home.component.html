@@ -29,20 +29,21 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>                                                
                                     <ul id="navigation">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Catagorias</a></li>
-                                        <li><a href="#">lista Produtos</a></li>
+                                        <li><a [routerLink]="['/home']">Home</a></li>
+                                        <li><a [routerLink]="['/home']">Catagorias</a></li>
+                                        <li><a [routerLink]="['/produtos']">lista Produtos</a></li>
                                         <li><a href="#">Paginas</a>
                                             <ul class="submenu">
-                                                <li><a href="#">Login</a></li>
-                                                <li><a href="#">Card</a></li>
-                                                <li><a href="#">Confirmation</a></li>
-                                                <li><a href="#">Shopping Cart</a></li>
-                                                <li><a href="#">Product Checkout</a></li>
+                                                <li><a [routerLink]="['/login']">Login</a></li>
+                                                <li><a [routerLink]="['/register']">Registrar</a></li>
+                                                <li><a [routerLink]="['/home']">Carrinho</a></li>
+                                                <li><a [routerLink]="['/home']">Confirmação</a></li>
+                                                <li><a [routerLink]="['/home']">Shopping Cart</a></li>
+                                                <li><a [routerLink]="['/home']">Checkout</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Contact</a></li>
-                                        <li><a href="#">About</a></li>
+                                        <li><a [routerLink]="['/contato']">Contato</a></li>
+                                        <li><a [routerLink]="['/About']">Sobre</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -64,10 +65,10 @@
                                 </li>
                                 <li>
                                     <div class="shopping-card">
-                                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                                        <a [routerLink]="['/carrinho']"><i class="fas fa-shopping-cart"></i></a>
                                     </div>
                                 </li>
-                               <li class="d-none d-lg-block"> <a href="#" class="btn header-btn">Sign in</a></li>
+                               <li class="d-none d-lg-block"> <a [routerLink]="['/login']" class="btn header-btn">Sign in</a></li>
                             </ul>
                         </div>
                         <!-- Mobile Menu -->
@@ -363,6 +364,7 @@
     </div>
     <!-- Shop Method End-->
 </main>
+
 <footer>
 
    <!-- Footer Start-->
