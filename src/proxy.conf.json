@@ -1,0 +1,7 @@
+{
+  "/*": {
+      "target": "https://keen-curie-febfbf.netlify.app/",
+      "secure": false,
+      "logLevel": "debug"
+  }
+}
