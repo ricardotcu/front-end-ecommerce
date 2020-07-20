@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -17,6 +17,8 @@ export class ProdutoComponent implements OnInit {
   profileForm = new FormGroup({
     search: new FormControl('')
   });
+  @Input()
+  public session: any;
 
   constructor(private route: ActivatedRoute, private http : HttpClient, private r: Router){
     this.apiURL = 'https://back-end-ecommerce.herokuapp.com';
@@ -24,6 +26,9 @@ export class ProdutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.session = JSON.parse(window.localStorage.getItem('currentUser'));
+    console.log(this.session)
+
     this.route.params.subscribe( parametros => {
       if (parametros['id']) {
         this.id_produto = parametros['id']

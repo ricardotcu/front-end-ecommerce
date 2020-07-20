@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -20,6 +20,8 @@ export class ProdutosComponent implements OnInit {
   page: number;
   collectionSize: number;
   pageSize: number;
+  @Input()
+  public session: any;
 
   constructor(private http : HttpClient, private r: Router){
     this.apiURL = 'https://back-end-ecommerce.herokuapp.com';
@@ -27,6 +29,9 @@ export class ProdutosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.session = JSON.parse(window.localStorage.getItem('currentUser'));
+    console.log(this.session)
+
     this.http.get(`${this.apiURL}/produtos`)
       .subscribe(result => {
         this.produtos = result;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  @Input()
+  public session: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.session = JSON.parse(window.localStorage.getItem('currentUser'));
+    console.log(this.session)
   }
 
 }
