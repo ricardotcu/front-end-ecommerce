@@ -57,7 +57,14 @@
                                         </div>
                                     </li>
                                 </ng-template>
-                                <ng-template [ngIf]="session">
+                                <ng-template [ngIf]="session">import { HttpHeaders } from '@angular/common/http';
+
+                                    const httpOptions = {
+                                      headers: new HttpHeaders({
+                                        'Content-Type':  'application/json',
+                                        'Authorization': 'my-auth-token'
+                                      })
+                                    };
                                     <li>
                                         <div class="shopping-card">
                                             <a [routerLink]="['/carrinho']"><i class="fas fa-shopping-cart"></i></a>

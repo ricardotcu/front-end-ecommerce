@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Cliente } from '../models/Cliente';
 
@@ -29,6 +29,17 @@ export class RegisterComponent implements OnInit {
   }
   
   register(cliente: Cliente) {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Headers': 'Accept',
+        'Access-Control-Allow-Methods': '*',
+        'Access-Control-Allow-Origin': '*'
+      })
+    };
+
     console.log(cliente)
     this.http.post(`${this.apiURL}/register_cliente`, cliente)
       .subscribe(result => {
