@@ -31,4 +31,9 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  logout() {
+    window.localStorage.clear();
+    this.session = false;
+  }
+
 }
