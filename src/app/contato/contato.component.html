@@ -21,9 +21,13 @@
                                         <li><a [routerLink]="['/produtos']">lista Produtos</a></li>
                                         <li><a href="#">Paginas</a>
                                             <ul class="submenu">
-                                                <li><a [routerLink]="['/login']">Login</a></li>
-                                                <li><a [routerLink]="['/register']">Registrar</a></li>
-                                                <li><a [routerLink]="['/home']">Carrinho</a></li>
+                                                <ng-template [ngIf]="session" [ngIfElse]="logoutsession">
+                                                    <li><a [routerLink]="['/carrinho']">Carrinho</a></li>
+                                                </ng-template>
+                                                <ng-template #logoutsession>
+                                                    <li><a [routerLink]="['/login_cliente']">Login</a></li>
+                                                    <li><a [routerLink]="['/register_cliente']">Registrar</a></li>
+                                                </ng-template>
                                                 <li><a [routerLink]="['/home']">Confirmação</a></li>
                                                 <li><a [routerLink]="['/home']">Checkout</a></li>
                                             </ul>
@@ -43,18 +47,29 @@
                                             <i class="fas fa-search special-tag"></i>
                                         </div>
                                     </div>
-                                 </li>
-                                <li class=" d-none d-xl-block">
-                                    <div class="favorit-items">
-                                        <i class="far fa-heart"></i>
-                                    </div>
                                 </li>
-                                <li>
-                                    <div class="shopping-card">
-                                        <a [routerLink]="['/carrinho']"><i class="fas fa-shopping-cart"></i></a>
-                                    </div>
-                                </li>
-                               <li class="d-none d-lg-block"> <a [routerLink]="['/login']" class="btn header-btn">Sign in</a></li>
+                                <ng-template [ngIf]="session">
+                                    <li class=" d-none d-xl-block">
+                                        <div class="favorit-items">
+                                            <i class="far fa-heart"></i>
+                                        </div>
+                                    </li>
+                                </ng-template>
+                                <ng-template [ngIf]="session">
+                                    <li>
+                                        <div class="shopping-card">
+                                            <a [routerLink]="['/carrinho']"><i class="fas fa-shopping-cart"></i></a>
+                                        </div>
+                                    </li>
+                                </ng-template>
+                                <ng-template [ngIf]="session" [ngIfElse]="logoutsession1">
+                                    <li class="d-none d-lg-block"> 
+                                        <button (click)="logout()" class="btn header-btn">Logout</button>
+                                    </li>
+                                </ng-template>
+                                <ng-template #logoutsession1>
+                                    <li class="d-none d-lg-block"> <a [routerLink]="['/login']" class="btn header-btn">Sign in</a></li>
+                                </ng-template>
                             </ul>
                         </div>
                         <!-- Mobile Menu -->

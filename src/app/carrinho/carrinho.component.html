@@ -1,73 +1,87 @@
-
 <header>
-    <!-- Header Start -->
-   <div class="header-area">
-        <div class="main-header ">
-           <div class="header-bottom  header-sticky">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <!-- Logo -->
-                        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
-                            <div class="logo">
-                              <a href="#"><img src="../../assets/img/logo/logo.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
-                            <!-- Main-menu -->
-                            <div class="main-menu f-right d-none d-lg-block">
-                                <nav>                                                
-                                    <ul id="navigation">
-                                        <li><a [routerLink]="['/home']">Home</a></li>
-                                        <li><a [routerLink]="['/home']">Catagorias</a></li>
-                                        <li><a [routerLink]="['/produtos']">lista Produtos</a></li>
-                                        <li><a href="#">Paginas</a>
-                                            <ul class="submenu">
-                                                <li><a [routerLink]="['/login']">Login</a></li>
-                                                <li><a [routerLink]="['/register']">Registrar</a></li>
-                                                <li><a [routerLink]="['/home']">Carrinho</a></li>
-                                                <li><a [routerLink]="['/home']">Confirmação</a></li>
-                                                <li><a [routerLink]="['/home']">Checkout</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a [routerLink]="['/contato']">Contato</a></li>
-                                        <li><a [routerLink]="['/about']">Sobre</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div> 
-                        <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
-                            <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
-                                <li class="d-none d-xl-block">
-                                    <div class="form-box f-right ">
-                                        <input type="text" name="Search" placeholder="Search products">
-                                        <div class="search-icon">
-                                            <i class="fas fa-search special-tag"></i>
-                                        </div>
-                                    </div>
-                                 </li>
-                                <li class=" d-none d-xl-block">
-                                    <div class="favorit-items">
-                                        <i class="far fa-heart"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="shopping-card">
-                                        <a [routerLink]="['/carrinho']"><i class="fas fa-shopping-cart"></i></a>
-                                    </div>
-                                </li>
-                               <li class="d-none d-lg-block"> <a [routerLink]="['/login']" class="btn header-btn">Sign in</a></li>
-                            </ul>
-                        </div>
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-           </div>
-        </div>
-   </div>
-    <!-- Header End -->
+  <!-- Header Start -->
+ <div class="header-area">
+      <div class="main-header ">
+         <div class="header-bottom  header-sticky">
+              <div class="container-fluid">
+                  <div class="row align-items-center">
+                      <!-- Logo -->
+                      <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                          <div class="logo">
+                            <a href="#"><img src="../../assets/img/logo/logo.png" alt=""></a>
+                          </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
+                          <!-- Main-menu -->
+                          <div class="main-menu f-right d-none d-lg-block">
+                              <nav>                                                
+                                  <ul id="navigation">
+                                      <li><a [routerLink]="['/home']">Home</a></li>
+                                      <li><a [routerLink]="['/home']">Catagorias</a></li>
+                                      <li><a [routerLink]="['/produtos']">lista Produtos</a></li>
+                                      <li><a href="#">Paginas</a>
+                                          <ul class="submenu">
+                                              <ng-template [ngIf]="session" [ngIfElse]="logoutsession">
+                                                  <li><a [routerLink]="['/carrinho']">Carrinho</a></li>
+                                              </ng-template>
+                                              <ng-template #logoutsession>
+                                                  <li><a [routerLink]="['/login_cliente']">Login</a></li>
+                                                  <li><a [routerLink]="['/register_cliente']">Registrar</a></li>
+                                              </ng-template>
+                                              <li><a [routerLink]="['/home']">Confirmação</a></li>
+                                              <li><a [routerLink]="['/home']">Checkout</a></li>
+                                          </ul>
+                                      </li>
+                                      <li><a [routerLink]="['/contato']">Contato</a></li>
+                                      <li><a [routerLink]="['/about']">Sobre</a></li>
+                                  </ul>
+                              </nav>
+                          </div>
+                      </div> 
+                      <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
+                          <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
+                              <li class="d-none d-xl-block">
+                                  <div class="form-box f-right ">
+                                      <input type="text" name="Search" placeholder="Search products">
+                                      <div class="search-icon">
+                                          <i class="fas fa-search special-tag"></i>
+                                      </div>
+                                  </div>
+                              </li>
+                              <ng-template [ngIf]="session">
+                                  <li class=" d-none d-xl-block">
+                                      <div class="favorit-items">
+                                          <i class="far fa-heart"></i>
+                                      </div>
+                                  </li>
+                              </ng-template>
+                              <ng-template [ngIf]="session">
+                                  <li>
+                                      <div class="shopping-card">
+                                          <a [routerLink]="['/carrinho']"><i class="fas fa-shopping-cart"></i></a>
+                                      </div>
+                                  </li>
+                              </ng-template>
+                              <ng-template [ngIf]="session" [ngIfElse]="logoutsession1">
+                                  <li class="d-none d-lg-block"> 
+                                      <button (click)="logout()" class="btn header-btn">Logout</button>
+                                  </li>
+                              </ng-template>
+                              <ng-template #logoutsession1>
+                                  <li class="d-none d-lg-block"> <a [routerLink]="['/login']" class="btn header-btn">Sign in</a></li>
+                              </ng-template>
+                          </ul>
+                      </div>
+                      <!-- Mobile Menu -->
+                      <div class="col-12">
+                          <div class="mobile_menu d-block d-lg-none"></div>
+                      </div>
+                  </div>
+              </div>
+         </div>
+      </div>
+ </div>
+  <!-- Header End -->
 </header>
 
 <!-- slider Area Start-->
