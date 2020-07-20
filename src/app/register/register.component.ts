@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Methods': 'post',
-        'Access-Control-Allow-Origin': 'https://keen-curie-febfbf.netlify.app/register_cliente'
+        'Access-Control-Allow-Origin': 'https://keen-curie-febfbf.netlify.app'
       })
     };
 
