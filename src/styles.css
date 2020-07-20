@@ -21,7 +21,10 @@
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
-
+.slick-slide {
+    float: left;
+    height: 100%;
+}
 .slick-list {
     position: relative;
     display: block;
@@ -29,7 +32,9 @@
     margin: 0;
     padding: 0;
 }
-
+.slick-initialized .slick-slide {
+    display: block;
+}
 .slider-area .single-slider {
     background-image: url(./assets/img/hero/h1_hero.jpg);
     width: 858px;
