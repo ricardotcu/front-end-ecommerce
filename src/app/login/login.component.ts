@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(cliente: Cliente) {
-    this.http.post(`${this.apiURL}/login`, cliente)
+    this.http.post(`${this.apiURL}/login_cliente`, cliente)
       .subscribe(result => {
         window.localStorage.setItem('currentUser', JSON.stringify(result));
         this.r.navigate(['/home']);
