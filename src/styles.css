@@ -30,8 +30,15 @@
     padding: 0;
 }
 
-
-
+.slider-area .single-slider {
+    background-image: url(./assets/img/hero/h1_hero.jpg);
+    width: 858px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index: 800;
+    opacity: 0;
+}
 
 
 
