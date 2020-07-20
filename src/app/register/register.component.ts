@@ -35,8 +35,8 @@ export class RegisterComponent implements OnInit {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Credentials': 'true',
         'Access-Control-Allow-Headers': 'Accept',
-        'Access-Control-Allow-Methods': '*',
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Methods': 'post',
+        'Access-Control-Allow-Origin': 'https://keen-curie-febfbf.netlify.app'
       })
     };
 
