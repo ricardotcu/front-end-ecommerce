@@ -33,15 +33,13 @@ export class RegisterComponent implements OnInit {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Headers': 'Accept',
         'Access-Control-Allow-Methods': 'post',
-        'Access-Control-Allow-Origin': 'https://keen-curie-febfbf.netlify.app'
+        'Access-Control-Allow-Origin': 'https://keen-curie-febfbf.netlify.app/register_cliente'
       })
     };
 
     console.log(cliente)
-    this.http.post(`${this.apiURL}/register_cliente`, cliente, httpOptions)
+    this.http.post(`${this.apiURL}/register_cliente`, cliente)
       .subscribe(result => {
         window.localStorage.setItem('currentUser', JSON.stringify(result));
         this.r.navigate(['/home']);

@@ -14,8 +14,8 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
 const routes: Routes = [
   { path: '',   redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login_cliente', component: LoginComponent },
+  { path: 'register_cliente', component: RegisterComponent },
   { path: 'produtos', component: ProdutosComponent },
   { path: 'produto/:id', component: ProdutoComponent },
   { path: 'contato', component: ContatoComponent },
