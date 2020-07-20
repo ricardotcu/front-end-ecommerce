@@ -41,4 +41,8 @@ export class ProdutoComponent implements OnInit {
       });
   }
 
+  logout() {
+    window.localStorage.clear();
+    this.session = false;
+  }
 }

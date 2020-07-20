@@ -41,5 +41,10 @@ export class ProdutosComponent implements OnInit {
         this.items = this.produtos;
       });
   }
+  
+  logout() {
+    window.localStorage.clear();
+    this.session = false;
+  }
 
 }

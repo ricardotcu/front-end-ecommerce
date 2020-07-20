@@ -16,4 +16,8 @@ export class AboutComponent implements OnInit {
     console.log(this.session)
   }
 
+  logout() {
+    window.localStorage.clear();
+    this.session = false;
+  }
 }
