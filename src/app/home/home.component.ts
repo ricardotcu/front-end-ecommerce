@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   public session: any;
 
   constructor(private http : HttpClient, private r: Router){
-    this.apiURL = 'https://keen-curie-febfbf.netlify.app';
+    this.apiURL = 'https://back-end-ecommerce.herokuapp.com';
     this.rota = r;
   }
 
