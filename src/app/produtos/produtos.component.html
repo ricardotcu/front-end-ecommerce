@@ -116,8 +116,8 @@
             <div class="col-md-10">
                 <div class="product_list">
                     <div class="row">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item" *ngFor="let prod of produtos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                        <div class="col-lg-4 col-sm-6" *ngFor="let prod of produtos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                            <div class="single_product_item">
                                 <img src={{prod.caminho}} alt="" class="img-fluid">
                                 <h3> <a [routerLink]="['/produto', prod.id]">{{prod.nome}}</a> </h3>
                                 <p>From ${{prod.valor}}</p>
